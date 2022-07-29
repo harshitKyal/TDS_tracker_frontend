@@ -1,3 +1,4 @@
+import { SupplierModule } from './supplier/supplier.module';
 import { UserModule } from './user/user.module';
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -77,6 +78,14 @@ const routes: Routes = [{
       // canActivate: [CommonModuleGuard],
       // canLoad: [CommonModuleGuard],
       data: { moduleName: "user" },
+    },
+    {
+      path: 'supplier',
+      loadChildren: () => import('./supplier/supplier.module')
+        .then(m => m.SupplierModule),
+      // canActivate: [CommonModuleGuard],
+      // canLoad: [CommonModuleGuard],
+      data: { moduleName: "supplier" },
     },
     {
       path: '',

@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-12">
     <nb-card>
-      <nb-card-header>Block form</nb-card-header>
+      <nb-card-header>
+        <span>Add User</span>
+      </nb-card-header>
       <nb-card-body>
         <div class="row">
           <div class="col-sm-6 col-md-4">
@@ -26,20 +28,14 @@
         <div class="row">
           <div class="col-sm-6 col-md-4">
             <div class="form-group">
-              <label for="inputFirstName" class="label">First Name</label>
-              <input type="text" nbInput fullWidth id="inputFirstName" placeholder="First Name">
+              <label for="inputFirstName" class="label">Phone Number</label>
+              <input type="text" nbInput fullWidth id="inputPhoneNumber" placeholder="Phone Number">
             </div>
           </div>
           <div class="col-sm-6 col-md-4">
-            <div class="form-group">
-              <label for="inputLastName" class="label">Last Name</label>
-              <input type="text" nbInput fullWidth id="inputLastName" placeholder="Last Name">
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="form-group">
-              <label for="inputEmail" class="label">Email</label>
-              <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email">
+            <div class="form-group" style="display: grid;">
+              <label for="inputLastName" class="label">Address</label>
+              <textarea name="inputAddress" placeholder="Address" id="inputAddress" cols="30" rows="5"></textarea>
             </div>
           </div>
         </div>
@@ -101,7 +97,7 @@
               <div class="col-md-4 col-12">
                 <nb-card>
                   <nb-card-header style="padding: 10px 10px;">
-                    User
+                    Supplier
                   </nb-card-header>
                   <nb-card-body style="padding: 0px">
                     <table class="w-100">
@@ -148,7 +144,54 @@
               <div class="col-md-4 col-12">
                 <nb-card>
                   <nb-card-header style="padding: 10px 10px;">
-                    User
+                    Firm
+                  </nb-card-header>
+                  <nb-card-body style="padding: 0px">
+                    <table class="w-100">
+                      <tr class="table-checkbox">
+                        <th>Name</th>
+                        <th>Check</th>
+                      </tr>
+
+                      <tr class="table-checkbox">
+                        <td>Select All</td>
+                        <td>
+                          <nb-checkbox></nb-checkbox>
+                        </td>
+                      </tr>
+                      <tr class="table-checkbox">
+                        <td>Create</td>
+                        <td>
+                          <nb-checkbox></nb-checkbox>
+                        </td>
+                      </tr>
+                      <tr class="table-checkbox">
+                        <td>Read</td>
+                        <td>
+                          <nb-checkbox></nb-checkbox>
+                        </td>
+                      </tr>
+                      <tr class="table-checkbox">
+                        <td>Update</td>
+                        <td>
+                          <nb-checkbox></nb-checkbox>
+                        </td>
+                      </tr>
+                      <tr class="table-checkbox">
+                        <td>Delete</td>
+                        <td>
+                          <nb-checkbox></nb-checkbox>
+                        </td>
+                      </tr>
+                    </table>
+                  </nb-card-body>
+                </nb-card>
+              </div>
+
+              <div class="col-md-4 col-12">
+                <nb-card>
+                  <nb-card-header style="padding: 10px 10px;">
+                    Payments
                   </nb-card-header>
                   <nb-card-body style="padding: 0px">
                     <table class="w-100">
@@ -194,9 +237,10 @@
             </div>
           </nb-card-body>
         </nb-card>
-
-        <button type="submit" nbButton>Submit</button>
       </nb-card-body>
+      <nb-card-footer>
+        <button type="submit" nbButton>Submit</button>
+      </nb-card-footer>
     </nb-card>
   </div>
 </div>
