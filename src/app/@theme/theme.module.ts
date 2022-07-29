@@ -19,6 +19,8 @@ import {
   NbInputModule,
   NbRadioModule,
   NbCheckboxModule,
+  NbPopoverModule,
+  NbListModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
@@ -66,7 +68,9 @@ const NB_MODULES = [
   NbInputModule,
   Ng2SmartTableModule,
   NbRadioModule,
-  NbCheckboxModule
+  NbCheckboxModule,
+  NbPopoverModule,
+  NbListModule
 ];
 const COMPONENTS = [
   HeaderComponent,

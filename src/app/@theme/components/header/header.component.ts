@@ -38,14 +38,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'cosmic';
 
-  userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
+  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
-              private menuService: NbMenuService,
-              private themeService: NbThemeService,
-              private userService: UserData,
-              private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+    private menuService: NbMenuService,
+    private themeService: NbThemeService,
+    private userService: UserData,
+    private layoutService: LayoutService,
+    private breakpointService: NbMediaBreakpointsService) {
   }
 
   ngOnInit() {
@@ -69,6 +69,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
       )
       .subscribe(themeName => this.currentTheme = themeName);
+
+    this.menuService.onItemClick().subscribe((event: { tag: string, item: any }) => {
+
+      let ele = document.getElementsByClassName('menu-sidebar')[0];
+      if (ele) {
+        if (ele.classList.contains('expanded')) {
+          this.sidebarService.toggle(true, "menu-sidebar");
+          this.layoutService.changeLayoutSize();
+        }
+      }
+
+    });
+
   }
 
   ngOnDestroy() {

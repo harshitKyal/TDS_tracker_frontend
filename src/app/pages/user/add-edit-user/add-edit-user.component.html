@@ -1,246 +1,188 @@
-<div class="row">
-  <div class="col-md-12">
+<nb-card>
+  <nb-card-header>
+    <span>Add User</span>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label for="inputFirstName" class="label">First Name</label>
+          <input type="text" nbInput fullWidth id="inputFirstName" placeholder="First Name">
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label for="inputLastName" class="label">Last Name</label>
+          <input type="text" nbInput fullWidth id="inputLastName" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label for="inputEmail" class="label">Email</label>
+          <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group">
+          <label for="inputFirstName" class="label">Phone Number</label>
+          <input type="text" nbInput fullWidth id="inputPhoneNumber" placeholder="Phone Number">
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-group" style="display: grid;">
+          <label for="inputLastName" class="label">Address</label>
+          <textarea name="inputAddress" placeholder="Address" id="inputAddress" cols="30" rows="5"></textarea>
+        </div>
+      </div>
+    </div>
+
     <nb-card>
       <nb-card-header>
-        <span>Add User</span>
+        User Permissions
       </nb-card-header>
       <nb-card-body>
         <div class="row">
-          <div class="col-sm-6 col-md-4">
-            <div class="form-group">
-              <label for="inputFirstName" class="label">First Name</label>
-              <input type="text" nbInput fullWidth id="inputFirstName" placeholder="First Name">
-            </div>
+
+          <div class="col-md-4 col-12">
+            <nb-card>
+              <nb-card-header style="padding: 10px 10px;">
+                User
+              </nb-card-header>
+              <nb-card-body style="padding: 0px">
+                <table class="w-100">
+                  <tr class="table-checkbox">
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="plus-circle"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="edit"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="eye"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="trash"></nb-icon></th>
+                  </tr>
+
+                  <tr class="table-checkbox">
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                  </tr>
+                </table>
+              </nb-card-body>
+            </nb-card>
           </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="form-group">
-              <label for="inputLastName" class="label">Last Name</label>
-              <input type="text" nbInput fullWidth id="inputLastName" placeholder="Last Name">
-            </div>
+
+          <div class="col-md-4 col-12">
+            <nb-card>
+              <nb-card-header style="padding: 10px 10px;">
+                User
+              </nb-card-header>
+              <nb-card-body style="padding: 0px">
+                <table class="w-100">
+                  <tr class="table-checkbox">
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="plus-circle"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="edit"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="eye"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="trash"></nb-icon></th>
+                  </tr>
+
+                  <tr class="table-checkbox">
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                  </tr>
+                </table>
+              </nb-card-body>
+            </nb-card>
           </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="form-group">
-              <label for="inputEmail" class="label">Email</label>
-              <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email">
-            </div>
+
+          <div class="col-md-4 col-12">
+            <nb-card>
+              <nb-card-header style="padding: 10px 10px;">
+                User
+              </nb-card-header>
+              <nb-card-body style="padding: 0px">
+                <table class="w-100">
+                  <tr class="table-checkbox">
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="plus-circle"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="edit"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="eye"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="trash"></nb-icon></th>
+                  </tr>
+
+                  <tr class="table-checkbox">
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                  </tr>
+                </table>
+              </nb-card-body>
+            </nb-card>
+          </div>
+
+          <div class="col-md-4 col-12">
+            <nb-card>
+              <nb-card-header style="padding: 10px 10px;">
+                User
+              </nb-card-header>
+              <nb-card-body style="padding: 0px">
+                <table class="w-100">
+                  <tr class="table-checkbox">
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="plus-circle"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="edit"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="eye"></nb-icon></th>
+                    <th><nb-icon class="mr-3" style="font-size: 25px;" icon="trash"></nb-icon></th>
+                  </tr>
+
+                  <tr class="table-checkbox">
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                    <td>
+                      <nb-checkbox></nb-checkbox>
+                    </td>
+                  </tr>
+                </table>
+              </nb-card-body>
+            </nb-card>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-4">
-            <div class="form-group">
-              <label for="inputFirstName" class="label">Phone Number</label>
-              <input type="text" nbInput fullWidth id="inputPhoneNumber" placeholder="Phone Number">
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <div class="form-group" style="display: grid;">
-              <label for="inputLastName" class="label">Address</label>
-              <textarea name="inputAddress" placeholder="Address" id="inputAddress" cols="30" rows="5"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <nb-card>
-          <nb-card-header>
-            User Permissions
-          </nb-card-header>
-          <nb-card-body>
-            <div class="row">
-
-              <div class="col-md-4 col-12">
-                <nb-card>
-                  <nb-card-header style="padding: 10px 10px;">
-                    User
-                  </nb-card-header>
-                  <nb-card-body style="padding: 0px">
-                    <table class="w-100">
-                      <tr class="table-checkbox">
-                        <th>Name</th>
-                        <th>Check</th>
-                      </tr>
-
-                      <tr class="table-checkbox">
-                        <td>Select All</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Create</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Read</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Update</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Delete</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                    </table>
-                  </nb-card-body>
-                </nb-card>
-              </div>
-
-              <div class="col-md-4 col-12">
-                <nb-card>
-                  <nb-card-header style="padding: 10px 10px;">
-                    Supplier
-                  </nb-card-header>
-                  <nb-card-body style="padding: 0px">
-                    <table class="w-100">
-                      <tr class="table-checkbox">
-                        <th>Name</th>
-                        <th>Check</th>
-                      </tr>
-
-                      <tr class="table-checkbox">
-                        <td>Select All</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Create</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Read</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Update</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Delete</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                    </table>
-                  </nb-card-body>
-                </nb-card>
-              </div>
-
-              <div class="col-md-4 col-12">
-                <nb-card>
-                  <nb-card-header style="padding: 10px 10px;">
-                    Firm
-                  </nb-card-header>
-                  <nb-card-body style="padding: 0px">
-                    <table class="w-100">
-                      <tr class="table-checkbox">
-                        <th>Name</th>
-                        <th>Check</th>
-                      </tr>
-
-                      <tr class="table-checkbox">
-                        <td>Select All</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Create</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Read</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Update</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Delete</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                    </table>
-                  </nb-card-body>
-                </nb-card>
-              </div>
-
-              <div class="col-md-4 col-12">
-                <nb-card>
-                  <nb-card-header style="padding: 10px 10px;">
-                    Payments
-                  </nb-card-header>
-                  <nb-card-body style="padding: 0px">
-                    <table class="w-100">
-                      <tr class="table-checkbox">
-                        <th>Name</th>
-                        <th>Check</th>
-                      </tr>
-
-                      <tr class="table-checkbox">
-                        <td>Select All</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Create</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Read</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Update</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                      <tr class="table-checkbox">
-                        <td>Delete</td>
-                        <td>
-                          <nb-checkbox></nb-checkbox>
-                        </td>
-                      </tr>
-                    </table>
-                  </nb-card-body>
-                </nb-card>
-              </div>
-            </div>
-          </nb-card-body>
-        </nb-card>
       </nb-card-body>
-      <nb-card-footer>
-        <button type="submit" nbButton>Submit</button>
-      </nb-card-footer>
     </nb-card>
-  </div>
-</div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button type="submit" nbButton>Submit</button>
+  </nb-card-footer>
+</nb-card>
+
+

@@ -3,7 +3,7 @@
     Supplier List
   </nb-card-header>
   <nb-card-body class="scroll-user-list">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-md-12 col-sm-12">
         <table class="w-100" style="border-collapse:separate;
         border-spacing:0 15px;">
@@ -218,8 +218,13 @@
           </tbody>
         </table>
       </div>
+    </div> -->
+
+    <div *ngIf="isDesktop">
+      This is Desktop
     </div>
-
-
+    <div *ngIf="!isDesktop">
+      This is Mobile
+    </div>
   </nb-card-body>
 </nb-card>

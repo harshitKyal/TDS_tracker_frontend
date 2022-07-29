@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaService } from '../../../@theme/services/media.service';
 
 @Component({
   selector: 'ngx-add-edit-user',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEditUserComponent implements OnInit {
 
+  isDesktop:boolean = false;
+  private mediaService = new MediaService('(min-width: 768px)');
   constructor() { }
 
   ngOnInit(): void {
+    this.mediaService.match$.subscribe(value => this.isDesktop = value);
   }
 
 }
