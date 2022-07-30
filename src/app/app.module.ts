@@ -21,6 +21,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { CustomHttpInterceptor } from './@theme/interceptor/httpInterceptor';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,6 +41,7 @@ import { CustomHttpInterceptor } from './@theme/interceptor/httpInterceptor';
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    GraphQLModule,
   ],
   providers: [
     {

@@ -10,13 +10,4 @@ export class UserService {
   constructor(private httpClient: HttpClient,
     private commonService: CommonService) { }
 
-  // getAllPartyListPaginated(data: RequestData) {
-  //   return this.httpClient.post(
-  //     this.commonService.envUrl() + "api/party/allPaginated", data
-  //   );
-  // }
-
-  getAllPartyList() {
-    return this.httpClient.get(this.commonService.envUrl() + "api/party/allPaginated");
-  }
 }

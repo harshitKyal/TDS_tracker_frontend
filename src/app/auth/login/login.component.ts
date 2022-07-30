@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("HIII");
+
   }
 
   // On submit button click

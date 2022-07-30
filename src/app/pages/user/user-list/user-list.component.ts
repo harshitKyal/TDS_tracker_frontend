@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Apollo, gql } from 'apollo-angular';
+import { Observable } from 'rxjs';
 import { MediaService } from '../../../@theme/services/media.service';
 import { UserService } from '../../../@theme/services/user.service';
 
@@ -43,29 +45,43 @@ export class UserListComponent implements OnInit {
       address: "A/211, Union Heights"
     }
   ];
-  constructor(private router: Router, private userService: UserService) { }
+
+  user$!: Observable<any>;
+  constructor(private router: Router, private userService: UserService, private apollo: Apollo) { }
 
   ngOnInit(): void {
 
     this.mediaService.match$.subscribe(value => this.isDesktop = value);
-    // this.getUsersList();
+    this.getUsersList();
   }
 
   getUsersList() {
 
-    this.loading = true;
-    this.usersList = [];
-
-    this.userService.getAllPartyList().subscribe((data: any) => {
-      if (data["success"]) {
-        this.usersList = data.data;
+    const allUsers = gql`
+     query {
+        users {
+          _id
+          firstName
+          lastName
+          email
+          mobile
+          userName
+        }
       }
-      this.loading = false;
-    },
-      (error) => {
+    `;
 
-      }
-    );
+    this.apollo
+      .watchQuery({
+        query: allUsers,
+        fetchPolicy: "network-only",
+      })
+      .valueChanges.subscribe((data: any) => {
+        this.usersList = data['data'].users;
+      },
+        (error) => {
+          console.log(error);
+        });
+
   }
 
   openRecord(user?) {
