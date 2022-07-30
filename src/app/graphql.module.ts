@@ -4,7 +4,7 @@ import { ApolloClientOptions, createHttpLink, InMemoryCache } from '@apollo/clie
 import { HttpLink } from 'apollo-angular/http';
 import { setContext } from '@apollo/client/link/context';
 
-const uri = 'http://192.168.29.17:8000/'; // <-- add the URL of the GraphQL server here
+const uri = 'https://shrouded-bayou-15247.herokuapp.com/'; // <-- add the URL of the GraphQL server here
 export function createApollo(): ApolloClientOptions<any> {
 
   const http = createHttpLink({ uri });
