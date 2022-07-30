@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MediaService } from '../../../@theme/services/media.service';
+import { UserService } from '../../../@theme/services/user.service';
 
 @Component({
   selector: 'ngx-user-list',
@@ -9,18 +10,74 @@ import { MediaService } from '../../../@theme/services/media.service';
 })
 export class UserListComponent implements OnInit {
 
-  isDesktop:boolean = false;
+  isDesktop: boolean = false;
   private mediaService = new MediaService('(min-width: 768px)');
-  constructor(private router:Router) { }
+  loading = false;
+  usersList = [
+    {
+      firstName: "Mohan",
+      lastName: "Bhombe",
+      email: "mohan.autotech@gmail.com",
+      phone: "9876543210",
+      address: "A/211, Union Heights"
+    },
+    {
+      firstName: "Mohan",
+      lastName: "Bhombe",
+      email: "mohan.autotech@gmail.com",
+      phone: "9876543210",
+      address: "A/211, Union Heights"
+    },
+    {
+      firstName: "Mohan",
+      lastName: "Bhombe",
+      email: "mohan.autotech@gmail.com",
+      phone: "9876543210",
+      address: "A/211, Union Heights"
+    },
+    {
+      firstName: "Mohan",
+      lastName: "Bhombe",
+      email: "mohan.autotech@gmail.com",
+      phone: "9876543210",
+      address: "A/211, Union Heights"
+    }
+  ];
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
 
     this.mediaService.match$.subscribe(value => this.isDesktop = value);
+    // this.getUsersList();
   }
 
-  openRecord(){
+  getUsersList() {
 
-    this.router.navigate(["pages/user/add"]);
+    this.loading = true;
+    this.usersList = [];
+
+    this.userService.getAllPartyList().subscribe((data: any) => {
+      if (data["success"]) {
+        this.usersList = data.data;
+      }
+      this.loading = false;
+    },
+      (error) => {
+
+      }
+    );
+  }
+
+  openRecord(user?) {
+
+    if (user) {
+      this.router.navigate(["pages/user/edit/" + user._id]);
+    } else {
+      this.router.navigate(["pages/user/add"]);
+    }
+
   }
 
 }
+
+

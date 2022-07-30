@@ -1,28 +1,27 @@
 <h1 class="title">Login</h1>
 
-<form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" aria-labelledby="title">
+<form #myForm="ngForm" aria-labelledby="title">
 
-    <div class="form-control-group">
-        <label class="label" for="email">Username:</label>
-        <input nbInput fullWidth type="text" name="userName" placeholder="Username" autofocus
-            [(ngModel)]="loginReq.userName" required #userName="ngModel" class="form-control"
-            [ngClass]="{'is-invalid': formSubmitted && userName.invalid}">
-            <div class="invalid-feedback" *ngIf="formSubmitted && (userName.invalid || userName.dirty || userName.touched)" >
-                <span>Username is required</span>
-            </div>
+  <div class="form-control-group">
+    <label class="label" for="email">Username:</label>
+    <input nbInput fullWidth type="text" name="userName" placeholder="Username" autofocus
+      [(ngModel)]="loginReq.userName" required #userName="ngModel" class="form-control"
+      [ngClass]="{'is-invalid': formSubmitted && userName.invalid}">
+    <div class="invalid-feedback" *ngIf="formSubmitted && (userName.invalid || userName.dirty || userName.touched)">
+      <span>Username is required</span>
     </div>
+  </div>
 
-    <div class="form-control-group">
-        <label class="label" for="password">Password:</label>
-        <input nbInput fullWidth name="password" type="password" placeholder="Password"
-            [(ngModel)]="loginReq.password" required #pass="ngModel" class="form-control"
-            [ngClass]="{'is-invalid': formSubmitted && pass.invalid}">
-        <div class="invalid-feedback"  *ngIf="formSubmitted && (pass.invalid || pass.dirty || pass.touched)">
-            <span>Password is required</span>
-        </div>
+  <div class="form-control-group">
+    <label class="label" for="password">Password:</label>
+    <input nbInput fullWidth name="password" type="password" placeholder="Password" [(ngModel)]="loginReq.password"
+      required #pass="ngModel" class="form-control" [ngClass]="{'is-invalid': formSubmitted && pass.invalid}">
+    <div class="invalid-feedback" *ngIf="formSubmitted && (pass.invalid || pass.dirty || pass.touched)">
+      <span>Password is required</span>
     </div>
+  </div>
 
-    <button nbButton fullWidth status="success" class="btn-login-gfl">
-        Log In
-    </button>
+  <button nbButton fullWidth status="success" class="btn-login-gfl" (click)="onSubmit(myForm)">
+    Log In
+  </button>
 </form>

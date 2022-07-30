@@ -4,8 +4,8 @@
       <span>User List</span>
       <div>
         <nb-icon class="mr-3" style="font-size: 25px;" (click)="openRecord()" icon="plus-circle"></nb-icon>
-        <nb-icon class="mr-3" style="font-size: 25px;" [nbPopover]="list" nbPopoverPlacement="bottom"
-          icon="funnel"></nb-icon>
+        <nb-icon class="mr-3" style="font-size: 25px;" [nbPopover]="list" nbPopoverPlacement="bottom" icon="funnel">
+        </nb-icon>
       </div>
     </div>
 
@@ -30,206 +30,42 @@
               </div>
 
               <div class="row">
-                <div class="list-container">
+                <div *ngFor="let user of usersList" class="list-container">
                   <tr>
-                    <div (click)="openRecord()" class="row">
+                    <div (click)="openRecord(user)" class="row">
                       <div class="col-md-6 col-12">
                         <div style="display: flex;line-height: 12px;justify-content: space-between;">
                           <label style="font-size: 13px;
                           font-weight: bold;" for="firstName">First Name :</label>
-                          <span style="font-size: 11px;">Kushal</span>
+                          <span style="font-size: 11px;">{{user.firstName}}</span>
                         </div>
                       </div>
                       <div class="col-md-6 col-12">
                         <div style="display: flex;line-height: 12px;justify-content: space-between;">
                           <label style="font-size: 13px;
                           font-weight: bold;" for="firstName">Last Name :</label>
-                          <span style="font-size: 11px;">Mehta</span>
+                          <span style="font-size: 11px;">{{user.lastName}}</span>
                         </div>
                       </div>
                       <div class="col-md-6 col-12">
                         <div style="display: flex;line-height: 12px;justify-content: space-between;">
                           <label style="font-size: 13px;
                           font-weight: bold;" for="firstName">Email :</label>
-                          <span style="font-size: 11px;">kushal.autotech@gmail.com</span>
+                          <span style="font-size: 11px;">{{user.email}}</span>
                         </div>
                       </div>
                       <div class="col-md-6 col-12">
                         <div style="display: flex;line-height: 12px;justify-content: space-between;">
                           <label style="font-size: 13px;
                           font-weight: bold;" for="firstName">Contact No :</label>
-                          <span style="font-size: 11px;">9876543210</span>
+                          <span style="font-size: 11px;">{{user.phone}}</span>
                         </div>
                       </div>
                       <div class="col-md-6 col-12">
                         <div style="display: flex;line-height: 12px;justify-content: space-between;">
                           <label style="font-size: 13px;
                           font-weight: bold;" for="firstName">Address :</label>
-                          <span style="font-size: 11px;">A/211 Union Heights</span>
-                        </div>
-                      </div>
-                    </div>
-                  </tr>
-                </div>
-                <div class="list-container">
-                  <tr>
-                    <div (click)="openRecord()" class="row">
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">First Name :</label>
-                          <span style="font-size: 11px;">Kushal</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Last Name :</label>
-                          <span style="font-size: 11px;">Mehta</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Email :</label>
-                          <span style="font-size: 11px;">kushal.autotech@gmail.com</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Contact No :</label>
-                          <span style="font-size: 11px;">9876543210</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Address :</label>
-                          <span style="font-size: 11px;">A/211 Union Heights</span>
-                        </div>
-                      </div>
-                    </div>
-                  </tr>
-                </div>
-                <div class="list-container">
-                  <tr>
-                    <div (click)="openRecord()" class="row">
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">First Name :</label>
-                          <span style="font-size: 11px;">Kushal</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Last Name :</label>
-                          <span style="font-size: 11px;">Mehta</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Email :</label>
-                          <span style="font-size: 11px;">kushal.autotech@gmail.com</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Contact No :</label>
-                          <span style="font-size: 11px;">9876543210</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Address :</label>
-                          <span style="font-size: 11px;">A/211 Union Heights</span>
-                        </div>
-                      </div>
-                    </div>
-                  </tr>
-                </div>
-                <div class="list-container">
-                  <tr>
-                    <div (click)="openRecord()" class="row">
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">First Name :</label>
-                          <span style="font-size: 11px;">Kushal</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Last Name :</label>
-                          <span style="font-size: 11px;">Mehta</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Email :</label>
-                          <span style="font-size: 11px;">kushal.autotech@gmail.com</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Contact No :</label>
-                          <span style="font-size: 11px;">9876543210</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Address :</label>
-                          <span style="font-size: 11px;">A/211 Union Heights</span>
-                        </div>
-                      </div>
-                    </div>
-                  </tr>
-                </div>
-                <div class="list-container">
-                  <tr>
-                    <div (click)="openRecord()" class="row">
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">First Name :</label>
-                          <span style="font-size: 11px;">Kushal</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Last Name :</label>
-                          <span style="font-size: 11px;">Mehta</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Email :</label>
-                          <span style="font-size: 11px;">kushal.autotech@gmail.com</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Contact No :</label>
-                          <span style="font-size: 11px;">9876543210</span>
-                        </div>
-                      </div>
-                      <div class="col-md-6 col-12">
-                        <div style="display: flex;line-height: 12px;justify-content: space-between;">
-                          <label style="font-size: 13px;
-                          font-weight: bold;" for="firstName">Address :</label>
-                          <span style="font-size: 11px;">A/211 Union Heights</span>
+                          <span style="font-size: 11px;">{{user.address}}</span>
                         </div>
                       </div>
                     </div>

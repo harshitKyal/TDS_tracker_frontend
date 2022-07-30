@@ -16,6 +16,6 @@ export class AuthService {
   }
 
   checkUserLogin(data): any {
-    return this.httpClient.post(this.commonService.envUrl() + 'api/login', data);
+    return this.httpClient.post(this.commonService.envUrl() + 'api/v1/login', data);
   }
 }

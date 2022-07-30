@@ -8,11 +8,11 @@ import { AuthService } from '../../@theme/services/auth.service';
 import { NbToastrService } from '@nebular/theme';
 
 @Component({
-  selector: 'ngx-login',
+  selector: 'nb-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   formSubmitted = false;
   userPermission = [];
@@ -27,8 +27,13 @@ export class LoginComponent {
     this.loginReq = new LoginModal();
   }
 
+  ngOnInit(){
+    console.log("HIII");
+  }
+
   // On submit button click
   onSubmit(myForm) {
+
     this.formSubmitted = true;
     if (myForm.valid) {
       let md5 = new Md5();
