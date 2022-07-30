@@ -22,12 +22,12 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private jwtToken: JwtTokenService,
     private storeTokenService: StoreTokenService,
-    private toaster:NbToastrService
+    private toaster: NbToastrService
   ) {
     this.loginReq = new LoginModal();
   }
 
-  ngOnInit(){
+  ngOnInit() {
     console.log("HIII");
   }
 
@@ -36,16 +36,15 @@ export class LoginComponent implements OnInit {
 
     this.formSubmitted = true;
     if (myForm.valid) {
-      let md5 = new Md5();
-      this.loginReq.password = md5.appendStr(this.loginReq.password).end()
+
       this.authService.checkUserLogin(this.loginReq).subscribe(
         (data) => {
-          if (data["success"]) {
-            this.storeTokenService.set("token", data["data"].accessToken);
-            this.storeTokenService.set(
-              "refreshToken",
-              data["data"].refreshToken
-            );
+          if (data["statusCode"] == 200) {
+            this.storeTokenService.set("token", data['token']);
+            // this.storeTokenService.set(
+            //   "refreshToken",
+            //   data["data"].refreshToken
+            // );
             this.loginReq.password = '';
             this.toaster.success("Login Successfull");
             this.route.navigate(["/pages"]);

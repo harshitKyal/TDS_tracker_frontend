@@ -1,10 +1,12 @@
+import { Router } from '@angular/router';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
 import { UserData } from '../../../@core/data/users';
 import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
+import { filter, map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { StoreTokenService } from '../../services/store-token.service';
 
 @Component({
   selector: 'ngx-header',
@@ -45,7 +47,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private themeService: NbThemeService,
     private userService: UserData,
     private layoutService: LayoutService,
-    private breakpointService: NbMediaBreakpointsService) {
+    private breakpointService: NbMediaBreakpointsService,
+    private tokenService:StoreTokenService,
+    private route:Router) {
   }
 
   ngOnInit() {
@@ -80,6 +84,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
         }
       }
 
+      if(event.item.title == 'Log out'){
+        this.logout();
+      }
+
     });
 
   }
@@ -103,5 +111,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.menuService.navigateHome();
     return false;
+  }
+
+  logout() {
+    //remove tokens from localstorage. and redirect to login.
+    this.tokenService.remove('token');
+    this.tokenService.remove('refreshToken');
+    this.route.navigate(['auth']);
   }
 }
