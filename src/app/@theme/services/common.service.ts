@@ -27,7 +27,7 @@ export class CommonService {
       url = "http://103.137.194.167:8080/";
     }
 
-    return "http://192.168.29.17:8000/";
+    return "https://shrouded-bayou-15247.herokuapp.com/";
 
   }
 
