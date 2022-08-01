@@ -15,36 +15,7 @@ export class UserListComponent implements OnInit {
   isDesktop: boolean = false;
   private mediaService = new MediaService('(min-width: 768px)');
   loading = false;
-  usersList = [
-    {
-      firstName: "Mohan",
-      lastName: "Bhombe",
-      email: "mohan.autotech@gmail.com",
-      phone: "9876543210",
-      address: "A/211, Union Heights"
-    },
-    {
-      firstName: "Mohan",
-      lastName: "Bhombe",
-      email: "mohan.autotech@gmail.com",
-      phone: "9876543210",
-      address: "A/211, Union Heights"
-    },
-    {
-      firstName: "Mohan",
-      lastName: "Bhombe",
-      email: "mohan.autotech@gmail.com",
-      phone: "9876543210",
-      address: "A/211, Union Heights"
-    },
-    {
-      firstName: "Mohan",
-      lastName: "Bhombe",
-      email: "mohan.autotech@gmail.com",
-      phone: "9876543210",
-      address: "A/211, Union Heights"
-    }
-  ];
+  usersList = [];
 
   user$!: Observable<any>;
   constructor(private router: Router, private userService: UserService, private apollo: Apollo) { }
@@ -70,6 +41,7 @@ export class UserListComponent implements OnInit {
       }
     `;
 
+    this.loading = true;
     this.apollo
       .watchQuery({
         query: allUsers,
@@ -77,9 +49,11 @@ export class UserListComponent implements OnInit {
       })
       .valueChanges.subscribe((data: any) => {
         this.usersList = data['data'].users;
+        this.loading = false;
       },
         (error) => {
           console.log(error);
+          this.loading = false;
         });
 
   }
