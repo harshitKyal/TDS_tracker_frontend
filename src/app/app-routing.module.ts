@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './@theme/guards/auth.guard';
+import { StopAuthGuard } from './@theme/guards/stop-auth.guard';
 
 export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module')
       .then(m => m.AuthModule),
+    canActivate: [StopAuthGuard],
   },
   {
     path: 'pages',
