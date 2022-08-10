@@ -87,15 +87,25 @@
   <nb-card style="margin-bottom: 0px;">
     <nb-card-header>Sort By Fields</nb-card-header>
     <nb-list>
-      <nb-list-item>
+      <nb-list-item (click)="soryByField('firstName')">
         <span>First Name</span>
-        <nb-icon icon="arrow-down-outline"></nb-icon>
-        <nb-icon icon="arrow-up-outline"></nb-icon>
+        <nb-icon *ngIf="sortObject.firstName == 'desc'" icon="arrow-down-outline"></nb-icon>
+        <nb-icon *ngIf="sortObject.firstName == 'asc'" icon="arrow-up-outline"></nb-icon>
       </nb-list-item>
-      <nb-list-item>
+      <nb-list-item (click)="soryByField('lastName')">
         <span>Last Name</span>
-        <nb-icon icon="arrow-down-outline"></nb-icon>
-        <nb-icon icon="arrow-up-outline"></nb-icon>
+        <nb-icon *ngIf="sortObject.lastName == 'desc'" icon="arrow-down-outline"></nb-icon>
+        <nb-icon *ngIf="sortObject.lastName == 'asc'" icon="arrow-up-outline"></nb-icon>
+      </nb-list-item>
+      <nb-list-item (click)="soryByField('email')">
+        <span>Email</span>
+        <nb-icon *ngIf="sortObject.email == 'desc'" icon="arrow-down-outline"></nb-icon>
+        <nb-icon *ngIf="sortObject.email == 'asc'" icon="arrow-up-outline"></nb-icon>
+      </nb-list-item>
+      <nb-list-item (click)="soryByField('userName')">
+        <span>User Name</span>
+        <nb-icon *ngIf="sortObject.userName == 'desc'" icon="arrow-down-outline"></nb-icon>
+        <nb-icon *ngIf="sortObject.userName == 'asc'" icon="arrow-up-outline"></nb-icon>
       </nb-list-item>
     </nb-list>
   </nb-card>

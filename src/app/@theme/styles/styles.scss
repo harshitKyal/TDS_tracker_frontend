@@ -49,6 +49,26 @@ textarea {
   color: #ffffff;
 }
 
-nb-icon{
+nb-icon {
   color: #62e7ee;
+}
+
+.required-class {
+  display: contents !important;
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.required:after {
+  content: " *";
+  color: #aa3634;
+}
+
+button {
+  background: white;
+  color: #62e7ee;
+  font-weight: bold;
+  font-style: italic;
 }

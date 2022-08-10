@@ -5,6 +5,7 @@ import { UserComponent } from './user.component';
 import { UsersRoutingModule } from './user-routing.module';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { UserListComponent } from './user-list/user-list.component';
   imports: [
     CommonModule,
     ThemeModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    FormsModule
   ]
 })
 export class UserModule { }
