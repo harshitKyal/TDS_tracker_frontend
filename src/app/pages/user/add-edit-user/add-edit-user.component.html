@@ -1,4 +1,4 @@
-<nb-card [nbSpinner]="loading" style="height: 100vh;overflow: auto;">
+<nb-card [nbSpinner]="loading" style="height: calc(100vh - 100px)">
   <nb-card-header>
 
     <div style="display: flex;justify-content: space-between;">
@@ -91,7 +91,7 @@
         <nb-card-header>
           User Permissions
         </nb-card-header>
-        <nb-card-body>
+        <nb-card-body style="overflow: hidden;">
           <div class="row">
 
             <div *ngFor="let permission of userObject.permission;let i = index" class="col-md-4 col-12">

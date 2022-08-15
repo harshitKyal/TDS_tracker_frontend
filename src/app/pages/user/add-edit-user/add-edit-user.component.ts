@@ -79,6 +79,7 @@ export class AddEditUserComponent implements OnInit {
 
   deleteRecord() {
 
+    this.loading = true;
     this.apollo.mutate({
       mutation: gql`mutation Users($type: String, $id: String) {
         users(type: $type, _id: $id) {
@@ -91,16 +92,23 @@ export class AddEditUserComponent implements OnInit {
       }
     }).subscribe(result => {
       this.toaster.success("User deleted", "Delete");
+      this.loading = false;
       this.router.navigate(['pages/user']);
-    })
+    },
+      (error) => {
+        console.log(error);
+        this.loading = false;
+      });
 
   }
 
   backToView() {
     this.editable = false;
+    this.userObject = this.copyUserData;
     this.cdr.detectChanges();
   }
 
+  copyUserData = null;
   getUserUpdateData() {
 
     this.userObject = new User();
@@ -166,6 +174,7 @@ export class AddEditUserComponent implements OnInit {
           this.userObject.mobile = tempData.mobile;
           this.userObject.password = tempData.password;
           this.userObject.id = tempData._id;
+          this.copyUserData = this.userObject;
         }
         this.loading = false;
       },
@@ -189,6 +198,7 @@ export class AddEditUserComponent implements OnInit {
     this.formSubmitted = true;
     if (userForm.valid) {
       this.userObject.type = "register";
+      this.loading = true;
       this.apollo.mutate({
         mutation: gql`mutation($type: String, $email: String,
                               $userName: String, $firstName: String,
@@ -217,10 +227,16 @@ export class AddEditUserComponent implements OnInit {
         variables: this.userObject
       }).subscribe(result => {
         this.toaster.success("User creadted", "Create");
+        this.loading = false;
         this.router.navigate(['pages/user']);
-      })
+      },
+        (error) => {
+          console.log(error);
+          this.loading = false;
+        });
     } else {
       this.toaster.danger("Enter Required Fields", "Validation Error");
+      this.loading = false;
     }
 
 
@@ -238,6 +254,7 @@ export class AddEditUserComponent implements OnInit {
     this.formSubmitted = true;
     if (userForm.valid) {
       this.userObject.type = "update";
+      this.loading = true;
       this.apollo.mutate({
         mutation: gql`mutation Users($type: String, $id: String, $email: String,
                                     $userName: String, $firstName: String, $lastName: String,
@@ -263,10 +280,16 @@ export class AddEditUserComponent implements OnInit {
         variables: this.userObject
       }).subscribe(result => {
         this.toaster.success("User updated", "Update");
+        this.loading = false;
         this.router.navigate(['pages/user']);
-      })
+      },
+        (error) => {
+          console.log(error);
+          this.loading = false;
+        });
     } else {
       this.toaster.danger("Enter Required Fields", "Validation Error");
+      this.loading = false;
     }
 
 
