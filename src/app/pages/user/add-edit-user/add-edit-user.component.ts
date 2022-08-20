@@ -102,13 +102,13 @@ export class AddEditUserComponent implements OnInit {
 
   }
 
-  backToView() {
-    this.editable = false;
-    this.userObject = this.copyUserData;
-    this.cdr.detectChanges();
-  }
+  // backToView() {
+  //   this.editable = false;
+  //   this.userObject = this.copyUserData;
+  //   this.cdr.detectChanges();
+  // }
 
-  copyUserData = null;
+  copyUserData: User;
   getUserUpdateData() {
 
     this.userObject = new User();
@@ -143,39 +143,43 @@ export class AddEditUserComponent implements OnInit {
       .valueChanges.subscribe((data: any) => {
         let tempData = data['data'].users[0];
         let moduleObject = tempData.permission;
-        let userModuleKeys = Object.keys(moduleObject);
-        let temp = [];
-        if (userModuleKeys && userModuleKeys.length) {
+        if (moduleObject) {
 
-          userModuleKeys.forEach(ele => {
-            let obj = {
-              name: ele,
-              selectAll: false,
-              view: moduleObject[ele][1],
-              add: moduleObject[ele][0],
-              edit: moduleObject[ele][2],
-              delete: moduleObject[ele][3]
-            }
+          let userModuleKeys = Object.keys(moduleObject);
+          let temp = [];
+          if (userModuleKeys && userModuleKeys.length) {
 
-            if (obj.add && obj.view && obj.edit && obj.delete) {
-              obj.selectAll = true;
-            }
+            userModuleKeys.forEach(ele => {
+              let obj = {
+                name: ele,
+                selectAll: false,
+                view: moduleObject[ele][1],
+                add: moduleObject[ele][0],
+                edit: moduleObject[ele][2],
+                delete: moduleObject[ele][3]
+              }
 
-            temp.push(obj);
-          });
+              if (obj.add && obj.view && obj.edit && obj.delete) {
+                obj.selectAll = true;
+              }
 
-          this.userObject.permission = [];
-          this.userObject.permission = [...temp];
+              temp.push(obj);
+            });
 
-          this.userObject.firstName = tempData.firstName;
-          this.userObject.lastName = tempData.lastName;
-          this.userObject.email = tempData.email;
-          this.userObject.userName = tempData.userName;
-          this.userObject.mobile = tempData.mobile;
-          this.userObject.password = tempData.password;
-          this.userObject.id = tempData._id;
-          this.copyUserData = this.userObject;
+            this.userObject.permission = [];
+            this.userObject.permission = [...temp];
+
+            this.userObject.firstName = tempData.firstName;
+            this.userObject.lastName = tempData.lastName;
+            this.userObject.email = tempData.email;
+            this.userObject.userName = tempData.userName;
+            this.userObject.mobile = tempData.mobile;
+            this.userObject.password = tempData.password;
+            this.userObject.id = tempData._id;
+            this.copyUserData = this.userObject;
+          }
         }
+
         this.loading = false;
       },
         (error) => {

@@ -10,7 +10,7 @@
     </div>
 
   </nb-card-header>
-  <nb-card-body class="scroll-user-list" style="margin: 0px;">
+  <nb-card-body class="scroll-user-list" style="margin: 0px;" id="statusScroll" (scroll)="scrollHandler()" class="staus-scroll-bar">
 
     <ng-container *ngIf="isDesktop"></ng-container>
 

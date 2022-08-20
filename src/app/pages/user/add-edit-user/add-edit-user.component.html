@@ -5,7 +5,7 @@
       <span>Add User</span>
       <div *ngIf="currentUserId" style="width: 60px;display: flex;justify-content: space-between;">
         <nb-icon *ngIf="!editable" (click)="makeEdittable()" style="font-size: 25px;" icon="edit"></nb-icon>
-        <nb-icon *ngIf="editable" (click)="backToView()" style="font-size: 25px;" icon="close-square"></nb-icon>
+        <!-- <nb-icon *ngIf="editable" (click)="backToView()" style="font-size: 25px;" icon="close-square"></nb-icon> -->
         <nb-icon (click)="deleteRecord()" style="font-size: 25px;" icon="trash"></nb-icon>
       </div>
     </div>

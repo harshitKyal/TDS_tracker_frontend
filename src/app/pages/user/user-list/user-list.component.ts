@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { Apollo, gql } from 'apollo-angular';
@@ -20,65 +20,78 @@ export class UserListComponent implements OnInit {
   loading = false;
   usersList = [];
   sortObject = {
-    firstName:'',
-    lastName:'',
-    email:'',
-    userName:''
+    firstName: '',
+    lastName: '',
+    email: '',
+    userName: ''
   };
-
+  userRequestModal: UsersRequestModal;
   user$!: Observable<any>;
+
   constructor(private router: Router, private userService: UserService, private apollo: Apollo,
     private dialog: NbDialogService) { }
 
   ngOnInit(): void {
 
     this.mediaService.match$.subscribe(value => this.isDesktop = value);
+    this.userRequestModal = new UsersRequestModal();
     this.getUsersList();
   }
 
   getUsersList() {
 
     const allUsers = gql`
-     query {
-        users {
+    query Users($page: Int, $limit: Int, $sort: String, $filterKeysArray: [String], $searchValue: String) {
+      users(page: $page, limit: $limit, sort: $sort, filterKeysArray: $filterKeysArray, searchValue: $searchValue) {
+        _id
+        email
+        userName
+        firstName
+        lastName
+        mobile
+        permission
+        password
+        firm {
+          GST
+          address
+          name
           _id
-          firstName
-          lastName
-          email
-          mobile
-          userName
         }
       }
+    }
     `;
 
     this.loading = true;
-    this.apollo
-      .watchQuery({
-        query: allUsers,
-        fetchPolicy: "network-only",
-      })
-      .valueChanges.subscribe((data: any) => {
-        this.usersList = data['data'].users;
-        this.loading = false;
+    this.apollo.watchQuery<any>({
+      query: allUsers,
+      variables: {
+        page: this.userRequestModal.page,
+        limit: this.userRequestModal.limit,
       },
-        (error) => {
-          console.log(error);
-          this.loading = false;
-        });
+      fetchPolicy: 'network-only',
+    }).valueChanges.subscribe((data: any) => {
+      this.usersList = [...this.usersList, ...data['data'].users];
+      this.userRequestModal.page = this.userRequestModal.page + 1;
+      this.loading = false;
+    },
+      (error) => {
+        console.log(error);
+        this.loading = false;
+      });
 
   }
 
-  soryByField(keyName){
+  soryByField(keyName) {
 
-    if(this.sortObject[keyName] == ''){
-      let list = sortBy(this.usersList,keyName,'asc');
+    if (this.sortObject[keyName] == '') {
+      let list = sortBy(this.usersList, keyName, 'asc');
       this.usersList = [...list];
       this.sortObject[keyName] = 'asc';
-    } else if(this.sortObject[keyName] == 'asc'){
-      let list = sortBy(this.usersList,keyName,'asc').reverse();
+    } else if (this.sortObject[keyName] == 'asc') {
+      let list = sortBy(this.usersList, keyName, 'asc').reverse();
       this.usersList = [...list];
       this.sortObject[keyName] = 'desc';
-    } else{
+    } else {
       this.getUsersList();
       this.sortObject[keyName] = '';
     }
@@ -98,6 +111,29 @@ export class UserListComponent implements OnInit {
 
   }
 
+  async scrollHandler() {
+
+    const scrollContainer = document.getElementById("statusScroll");
+
+    if (scrollContainer) {
+
+      let diff = scrollContainer.scrollTop - (scrollContainer.scrollHeight - scrollContainer.offsetHeight);
+
+      if (diff >= -1 && diff <= 5) {
+        this.getUsersList();
+
+      }
+    }
+  }
 }
 
+export class UsersRequestModal {
 
+  page: number;
+  limit: number;
+
+  constructor() {
+    this.page = 1;
+    this.limit = 10;
+  }
+}
